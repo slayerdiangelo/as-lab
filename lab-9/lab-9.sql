@@ -1,26 +1,29 @@
-CREATE TABLE store (
-    order_no INT,
+CREATE TABLE emp (
     code VARCHAR(2),
-    item_name CHAR(20),
-    quantity INT,
-    price INT,
-    discount VARCHAR(4),
-    mrp INT
+    name VARCHAR(20),
+    dob DATE,
+    designation CHAR(10),
+	salary INT
 );
 
-INSERT INTO store VALUES
-(011,'A1','ITEM1',20,1000,'10%',900),
-(012,'A2','ITEM2',10,500,'10%',450),
-(013,'A3','ITEM3',30,3000,'50%',1500);
+INSERT INTO emp VALUES
+('A1','Emp 1','1981-02-26','Manager',70000),
+('A4','Emp 2','1972-01-16','Clerk',40000),
+('A2','Emp 3','1982-05-08','Accountant',60000),
+('A4','Emp 4','1973-11-03','Clerk',40000);
 
-SELECT * FROM store;
+SELECT code, name, designation
+FROM emp
+ORDER BY name DESC;
 
-CREATE VIEW view1 AS
-SELECT item_name, quantity
-FROM store;
+CREATE TABLE deposit (
+    baccno INT,
+    branch_name CHAR(20),
+	amount INT
+);
 
-UPDATE store
-SET item_name = 'ITEM4'
-WHERE mrp=1500;
+INSERT INTO deposit VALUES
+(0010, 'North Rock', 20000000),
+(0012, 'South Rock', 30000000);
 
-SELECT * FROM view1;
+SELECT * FROM deposit;
